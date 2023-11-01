@@ -27,7 +27,7 @@ def find_dom_sets(G):
     Finds all possible dominating sets in a given graph G. 
     """
     nodes_arr = G.nodes
-    subsets = [list(S) for l in range(0, len(nodes_arr)) for S in itertools.combinations(nodes_arr, l+1)] # every possible set of vertices from G
+    subsets = [list(S) for l in range(0, len(nodes_arr)) for S in itertools.combinations(nodes_arr, l+1)] 
     dom_sets = []
 
     for D in subsets: 
@@ -36,7 +36,7 @@ def find_dom_sets(G):
             continue
 
         if nx.is_dominating_set(G, tuple(D)):
-            dom_sets.append(tuple(D)) #list with every dominant set of given graph
+            dom_sets.append(tuple(D)) 
     return dom_sets
 
 def find_minimum_dom_sets(G):
