@@ -1,13 +1,7 @@
-import random
+import city_class
+import func_dom_set
 
-class CityGrid:
-    def __init__(self, n, m, obstructed_percentage=30):
-        self.n = n
-        self.m = m
-        self.grid = [[0 for _ in range(m)] for _ in range(n)]
-        
-        # Initialize obstructed blocks randomly
-        for i in range(n):
-            for j in range(m):
-                if random.randint(1, 100) <= obstructed_percentage:
-                    self.grid[i][j] = 1
+city = city_class.CityGrid(5, 6, obstructed_percentage=55)
+city.init_graph(R=1)
+city.vizualize_graph()
+city.vizualize_graph(towers=func_dom_set.find_minimum_dom_sets(city.graph))
